@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.RestController
 
+import javax.validation.Valid
+
 @RestController("/doctors")
 class DoctorController {
 
@@ -20,7 +22,7 @@ class DoctorController {
     }
 
     @RequestMapping(method = [RequestMethod.POST])
-    public Doctor create(@RequestBody Doctor d){
+    public Doctor create(@RequestBody @Valid Doctor d){
         return doctorDao.save(d)
     }
 
