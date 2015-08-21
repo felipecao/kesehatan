@@ -56,7 +56,7 @@ public class DoctorControllerTest {
         mockMvc.perform(post("/doctors")
                 .contentType("application/json")
                 .content(new Gson().toJson(new Doctor(name: null, street: "Av. das Palmeiras", streetNo: 1290)))
-        ).andExpect(status().isOk())
+        ).andExpect(status().isBadRequest())
     }
 
     @Test
